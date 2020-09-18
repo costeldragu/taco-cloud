@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet author="costel.dragu" id="1">
+        <insert tableName="Ingredient">
+            <column name="id" value="FLTO"/>
+            <column name="name" value="Flour Tortilla"/>
+            <column name="type" value="WRAP"/>
+        </insert>
+
+        <insert tableName="Ingredient">
+            <column name="id" value="COTO"/>
+            <column name="name" value="Corn Tortilla"/>
+            <column name="type" value="WRAP"/>
+        </insert>
+
+        <insert tableName="Ingredient">
+            <column name="id" value="GRBF"/>
+            <column name="name" value="Ground Beef"/>
+            <column name="type" value="PROTEIN"/>
+        </insert>
+
+        <insert tableName="Ingredient">
+            <column name="id" value="CARN"/>
+            <column name="name" value="Carnitas"/>
+            <column name="type" value="PROTEIN"/>
+        </insert>
+
+        <insert tableName="Ingredient">
+            <column name="id" value="TMTO"/>
+            <column name="name" value="Diced Tomatoe"/>
+            <column name="type" value="VEGGIES"/>
+        </insert>
+
+        <insert tableName="Ingredient">
+            <column name="id" value="LETC"/>
+            <column name="name" value="Lettuce"/>
+            <column name="type" value="VEGGIES"/>
+        </insert>
+        <insert tableName="Ingredient">
+            <column name="id" value="CHED"/>
+            <column name="name" value="Cheddar"/>
+            <column name="type" value="CHEESE"/>
+        </insert>
+        <insert tableName="Ingredient">
+            <column name="id" value="JACK"/>
+            <column name="name" value="Monterrey Jack"/>
+            <column name="type" value="CHEESE"/>
+        </insert>
+
+        <insert tableName="Ingredient">
+            <column name="id" value="SLSA"/>
+            <column name="name" value="Salsa"/>
+            <column name="type" value="SAUCE"/>
+        </insert>
+        <insert tableName="Ingredient">
+            <column name="id" value="SRCR"/>
+            <column name="name" value="Sour Cream"/>
+            <column name="type" value="SAUCE"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

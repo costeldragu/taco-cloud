@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet author="costel.dragu" id="1">
+        <createTable tableName="Ingredient">
+            <column name="id" type="VARCHAR(4)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ingredient_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(25)"/>
+            <column name="type" type="VARCHAR(10)"/>
+        </createTable>
+
+        <createTable tableName="Taco">
+            <column autoIncrement="true" name="id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="taco_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(50)"/>
+            <column name="createdAt" type="datetime"/>
+        </createTable>
+
+        <createTable tableName="Taco_Ingredients">
+            <column autoIncrement="true" name="id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="taco_ingredients_pkey"/>
+            </column>
+            <column name="taco" type="INTEGER"/>
+            <column name="ingredient" type="VARCHAR(4)"/>
+        </createTable>
+
+
+        <createTable tableName="Taco_Order">
+            <column autoIncrement="true" name="id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="taco_order_pkey"/>
+            </column>
+            <column name="deliveryName" type="VARCHAR(50)"/>
+            <column name="deliveryStreet" type="VARCHAR(50)"/>
+            <column name="deliveryCity" type="VARCHAR(50)"/>
+            <column name="deliveryState" type="VARCHAR(2)"/>
+            <column name="deliveryZip" type="VARCHAR(10)"/>
+            <column name="ccNumber" type="VARCHAR(16)"/>
+            <column name="ccExpiration" type="VARCHAR(5)"/>
+            <column name="ccCVV" type="VARCHAR(3)"/>
+            <column name="placedAt" type="datetime"/>
+        </createTable>
+
+
+        <createTable tableName="Taco_Order_Tacos">
+            <column name="tacoOrder" type="INTEGER"/>
+            <column name="taco" type="INTEGER"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="Taco_Ingredients"
+                baseColumnNames="taco"
+                constraintName="taco_frk"
+                referencedTableName="Taco"
+                referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint
+                baseTableName="Taco_Ingredients"
+                baseColumnNames="ingredient"
+                constraintName="ingredients_frk"
+                referencedTableName="Ingredient"
+                referencedColumnNames="id"/>
+
+
+        <addForeignKeyConstraint
+                baseTableName="Taco_Order_Tacos"
+                baseColumnNames="tacoOrder"
+                constraintName="tacoOrder_frk"
+                referencedTableName="Taco_Order"
+                referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint
+                baseTableName="Taco_Order_Tacos"
+                baseColumnNames="tacoOrder"
+                constraintName="Taco_Order_Tacos_Taco_frk"
+                referencedTableName="Taco"
+                referencedColumnNames="id"/>
+
+    </changeSet>
+</databaseChangeLog>
