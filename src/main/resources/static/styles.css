@@ -1,0 +1,9 @@
+body {
+    font-family: "Times New Roman";
+    color: black;
+    font-size: large;
+}
+
+.validationError {
+    color : red;
+}
