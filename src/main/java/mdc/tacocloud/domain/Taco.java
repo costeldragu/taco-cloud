@@ -22,10 +22,10 @@ public class Taco implements Serializable {
     @Size(min=1, message="You must choose at least 1 ingredient")
     private List<Ingredient> ingredients = new ArrayList<>();
 
-    private Date createdDate;
+    private Date createdAt;
 
     void createdDate() {
-        this.createdDate = new Date();
+        this.createdAt = new Date();
     }
 
 }
